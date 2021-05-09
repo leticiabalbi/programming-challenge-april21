@@ -1,0 +1,29 @@
+:root {
+  --color-btn-primary-background: hsl(var(--color-base-hue), 30%, 45%);
+  --color-btn-primary-background-dark: hsl(var(--color-base-hue), 30%, 50%);
+  --color-btn-primary-text: hsl(var(--color-base-hue), 13%, 98%);
+  --color-btn-primary-text-dark: hsl(var(--color-base-hue), 13%, 98%);
+  --color-btn-border: hsl(var(--color-base-hue), 30%, 32%);
+}
+
+.btn {
+  border: 1px solid var(--color-btn-border);
+  border-radius: .5rem;
+  padding: .5rem 1rem;
+  font-size: 1rem;
+  font-family: 'Gotham Rounded';
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn-primary {
+  color: var(--color-btn-primary-text);
+  background-color: var(--color-btn-primary-background);
+}
+
+.btn-primary:hover {
+  color: var(--color-btn-primary-text-dark);
+  background-color: var(--color-btn-primary-background-dark);
+}
+

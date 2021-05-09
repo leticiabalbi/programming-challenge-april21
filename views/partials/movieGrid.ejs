@@ -1,0 +1,13 @@
+<% movieGridClass = locals.large ? 'movie-grid-large' : '' %>
+<h2>Results</h2>
+<div class="movie-grid <%= movieGridClass %>">
+  <% movies.forEach(movie => { %>
+    <div class = "movie-container">
+      <div class="movie-name"><%= movie.title %></div>
+      <div class="details">
+        <div class="star-icon"></div>
+        <div class="movie-details"><%= parseFloat(movie.rating.toFixed(2)) %>   -   <%= movie.genres %></div> 
+      </div>
+    </div>
+  <% }) %>
+</div>
