@@ -1,16 +1,10 @@
 # Programming Challenge
 
-------
-
 ## Description
-
-------
 
 This challenge was developed in the technical testing phase of the selection process for the developer vacancy at Sidia. It consists of an application that lists movies, from the [MovieLens](https://grouplens.org/datasets/movielens/ ) dataset,  by year, genre, and by the number of the best-rated movies in descending order. The project is divided into three parts: Data preparation, Back-end and Front-end.
 
 ## Data preparation
-
-------
 
 ### Install the following dependencies:
 
@@ -30,8 +24,6 @@ Using a database management system is faster, more secure, powerful, and easier 
 
 ## Back-end  and Front-end
 
-------
-
 ### Technology stack:
 
 - [Node.js](https://nodejs.org/en/)
@@ -43,8 +35,6 @@ Using a database management system is faster, more secure, powerful, and easier 
 **Node.js** is lightweight, efficient and the development process is greatly accelerated by the sharing of code between the front-end and the back-end. With the help of **Express.js**, we can easily build different types of web applications in a short period of time. **Mongoose** makes working with MongoDB easier and is enough for our project since we have a small database and we are working with basic Mongo operations. Lastly, **EJS** is very easy to integrate with Node.js and we can easily add our js logic in HTML tags.
 
 ## Steps to run the application
-
-------
 
 ### Install the following software:
 
@@ -79,11 +69,9 @@ If the value of some of the query parameters is null or has not been defined, th
 
 ## Screenshots
 
-------
+![](/screenshots/image1.png)
 
-![](C:\Users\Leticia Balbi\Documents\repos\programming-challenge-april21\screenshots\image1.png)
-
-![](C:\Users\Leticia Balbi\Documents\repos\programming-challenge-april21\screenshots\image2.png)
+![](/screenshots/image2.png)
 
 
 
