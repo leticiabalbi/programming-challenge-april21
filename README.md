@@ -1,52 +1,91 @@
 # Programming Challenge
 
-Congratulations on being selected to participate in our technical test. It consists of a programming challenge and it will address different skills. Read the instructions carefully and we wish you the best of luck.
+------
 
-## Before You Start
+## Description
 
-Fork this repository and once you have finished your challenge, grant access to the Github user "kavlac". Upload all your deliverables to your forked repository. We will use it to evaluate your test.
+------
 
-## Introduction
+This challenge was developed in the technical testing phase of the selection process for the developer vacancy at Sidia. It consists of an application that lists movies, from the [MovieLens](https://grouplens.org/datasets/movielens/ ) dataset,  by year, genre, and by the number of the best-rated movies in descending order. The project is divided into three parts: Data preparation, Back-end and Front-end.
 
-We want you to develop a project that makes uses of the [MovieLens](https://grouplens.org/datasets/movielens/) dataset. It consists of three goals and the details on each one of them is given below.
+## Data preparation
 
-## Preparing the Data
+------
 
-The first goal of this challenge is to obtain and prepare the data you will work with.
+### Install the following dependencies:
 
-In order to do so, you must download a [publicly available dataset](http://files.grouplens.org/datasets/movielens/ml-25m.zip). You can find the details about what data is stored and how it is structured in the [instructions](http://files.grouplens.org/datasets/movielens/ml-25m-README.html).
+- [Python](https://www.python.org/)
+- [Pandas](https://pandas.pydata.org/)                       `pip install pandas`
+- [MongoDB](https://www.mongodb.com/) driver          `pip install pymongo[srv]`
 
-Then, you are asked to write a program to read the input files for the dataset and create a database out of it. You can choose to use the database in memory, in files, or in a database management system, as long as you process and consume this data in the upcoming parts.
+**Python Pandas Library** provides extremely streamlined forms of data representation, which helps to understand them better. Besides, it provides a huge set of commands and features which are used easily to perform various tasks in a large amount of data efficiently and help to shorten the procedure of handling data. Thus, we will use **Pandas** to process our data.
 
-## Making the Data Available
+Using a database management system is faster, more secure, powerful, and easier than directly managing data yourself. Thus, we will use the non-relational, open-source document database **MongoDB** to store our processed data. The document data model is a powerful way to store and retrieve data that allows developers to evolve quickly and move fast.
 
-The second goal of this challenge is to make the processed data available for consumption.
+### Steps to run
 
-To do such, you must implement a REST API and it should provide the following methods:
-- List movies by year and genre: given a year and a genre, we want to know what movies match the given year and are of the given genre;
-- List top K rated movies: given a number K, we want to know the best K rated movies in descending order.
+1. Copy or move `movies.csv` and `ratings.csv` files from [MovieLens](https://grouplens.org/datasets/movielens/ ) to the `/data_preparation` directory;
+2. Still in the same directory, execute `python data_processing.py` command. It will run our data processing program and create a new .csv file of our processed data;
+3. Then, execute `python import_csv_to_mongo.py` command. It will run a program that creates our database on MongoDB and stores our processed data there.
 
-## Consuming the Data
+## Back-end  and Front-end
 
-The third goal of this challenge is to consume the methods of the REST API.
+------
 
-Thus, you are asked to implement a client application that accesses such an API. It must have a graphical interface to interact with users to consume the three methods above. It is up to you how to design the user interface, as long as it is usable.
+### Technology stack:
 
-## Deliverables
+- [Node.js](https://nodejs.org/en/)
+- [npm](https://www.npmjs.com/)
+- [Express.js](https://expressjs.com/pt-br/)
+- [Mongoose](https://mongoosejs.com/)
+- [EJS]()
 
-You must provide the following artifacts:
-- The source-code of the programs that you implemented;
-- A set of instructions on how to prepare the environment, build the programs, run each part of the challenge, and how to use your project;
-- Comments on what technologies and patterns you used and the reasons to do so, as well as the decisions you made throughout the challenge;
-- Any other artifact you find relevant for your overall evaluation.
+**Node.js** is lightweight, efficient and the development process is greatly accelerated by the sharing of code between the front-end and the back-end. With the help of **Express.js**, we can easily build different types of web applications in a short period of time. **Mongoose** makes working with MongoDB easier and is enough for our project since we have a small database and we are working with basic Mongo operations. Lastly, **EJS** is very easy to integrate with Node.js and we can easily add our js logic in HTML tags.
 
-## Tips
+## Steps to run the application
 
-- Make sure your instructions are easy to follow and that each step works as expected;
-- Our main environment is Windows, so please make sure that your solution works on it;
-- If you want, you can show us how you can set up your project using Docker;
-- We suggest you implement the challenge using the following languages (you can use more than one of them if you want): C#, Java, and/or JavaScript;
-- Testing is more than welcome;
-- Show us everything you know about best practices in Git;
-- Think carefully about your code quality, in terms of maintainability, readability, and simplicity;
-- Do not overengineer your solution.
+------
+
+### Install the following software:
+
+- [npm](https://www.npmjs.com/)
+- [Node.js](https://nodejs.org/en/)
+
+### Steps
+
+1. Go to the project root directory (if you are on `/data_preparation`  directory just execute `cd ..` to return to project root directory);
+2. Execute `npm install` to install all the required dependencies;
+3. Then, execute `npm start devStart`;
+4. Open your browser and access `http://localhost:3000/movies`.
+
+### Usage
+
+- Endpoint: `http://localhost:3000/movies`
+- GET movies by genre: `http://localhost:3000/movies?genre={genre}`
+- GET movies by year: `http://localhost:3000/movies?year={year}`
+- GET movies by a number K: `http://localhost:3000/movies?topK={topK}`
+- GET movies by genre and year: `http://localhost:3000/movies?genre={genre}&year={year}`
+- GET movies by genre and a number of K: `http://localhost:3000/movies?genre={genre}&topK={topK}`
+- GET movies by year and a number of K: `http://localhost:3000/movies?year={year}&topK={topK}`
+- GET movies by year, genre and a number of K: `http://localhost:3000/movies?genre={genre}&year={year}&topK={topK}`
+
+#### Observations
+
+If the value of some of the query parameters is null or has not been defined, then its value will be the default value established during the API development. The default value for each parameter is as follows:
+
+- `genre`: it will consider all movies genres;
+- `year`: it will consider all movies years;
+- `topK`: it will consider just the top 50 rated movies.
+
+## Screenshots
+
+------
+
+![](C:\Users\Leticia Balbi\Documents\repos\programming-challenge-april21\screenshots\image1.png)
+
+![](C:\Users\Leticia Balbi\Documents\repos\programming-challenge-april21\screenshots\image2.png)
+
+
+
+
+
